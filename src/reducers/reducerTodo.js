@@ -1,19 +1,24 @@
 const initialState = {
-    userInput:'',
+    textField:'',
     list: []
   }
 
 const ReducerTodo=(state=initialState,action)=>{
-    if(action.type==='ADDTASK'){
-       console.log(state,action)
-       return  { 
-        ...state,
-        list:[...state.list,action.payload]
-        }     
-        console.log(state,action)   
-    }
-    else{
-        return state;
+    switch(action.type){
+        case 'FIELD_CHANGE':
+        console.log(state,action) 
+            return{
+                ...state,
+                textField:action.payload
+            };
+        case 'ADDTASK':
+        console.log(state,action) 
+            return  { 
+                ...state,
+            list:[...state.list,action.payload]
+            }    
+            
+        default: return state;
     }
 }
 

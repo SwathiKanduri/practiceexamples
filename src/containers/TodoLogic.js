@@ -1,18 +1,29 @@
 import React from 'react';
 
-import {addTask} from '../actions/actionsTodo'
+import {addTask,updateField} from '../actions/actionsTodo'
 import TodoShow from '../components/TodoShow'
 import {connect} from 'react-redux'
-// import storeTodo from '../storeTodo'
+import storeTodo from '../storeTodo'
 // import ReducerTodo from '../reducers/reducerTodo';
 
 
 class TodoLogic extends React.Component{
     render(){
+        const displayList=this.props.list.map((arr,index)=>{
+           // return(
+               // <li key={index}> {arr}  </li>
+           // )
+        } )
+
+
+
+
         return(
             <div> 
-                <TodoShow  listvalue={this.props.list.map((list,index)=>{ <ul> <li> {list} </li> </ul> } ) } 
-                 addtask={this.props.addTask }   />
+                <TodoShow   
+                updateField={this.props.updateField}
+                listvalue={displayList} 
+                 addtask={this.props.addTask}   />
             </div>
         );                                 
     }
@@ -21,17 +32,22 @@ class TodoLogic extends React.Component{
                                                             
 const mapStateToProps = (state) => {
     return {
+        text:state.textField,
         list:state.list
+       
     };
   };
   
-  const mapDispatchToProps = (dispatch) => {
-      return {
-        addTask: (userInput) => {
-              dispatch(addTask(userInput));
-          }
-    };
-  };
+  const mapDispatchToProps = (dispatch) => ({
+            updateField:(newText)=> {
+            dispatch(updateField(newText));
+        },
+
+        addTask: (text) => {
+              dispatch(addTask(text));
+        },
+    
+  });
 
 
   export default connect(mapStateToProps,mapDispatchToProps)(TodoLogic); 

@@ -1,6 +1,13 @@
-export function addTask(userInput) {
+export function addTask(text) {
     return{
         type:'ADDTASK',
-        payload:userInput
+        payload:text
     };
+}
+
+export function updateField(newText){
+    return{
+        type:'FIELD_CHANGE',
+        payload:newText
+    }
 }
