@@ -9,21 +9,20 @@ import storeTodo from '../storeTodo'
 
 class TodoLogic extends React.Component{
     render(){
-        const displayList=this.props.list.map((arr,index)=>{
-           // return(
-               // <li key={index}> {arr}  </li>
-           // )
-        } )
-
-
-
+        const displayList = this.props.list.map((array,index) =>
+            <ul style={{listStyle:'none'}} > <li > 
+            <input key={index} type="checkbox"  /> {array}
+            </li> </ul> 
+            );
 
         return(
             <div> 
                 <TodoShow   
-                updateField={this.props.updateField}
-                listvalue={displayList} 
-                 addtask={this.props.addTask}   />
+                    updateField={this.props.updateField}
+                    text={this.props.text}
+                    addtask={this.props.addTask}  
+                    listvalue={displayList}
+                />                             
             </div>
         );                                 
     }

@@ -14,7 +14,7 @@ const ReducerTodo=(state=initialState,action)=>{
         case 'ADDTASK':
         console.log(state,action) 
             return  { 
-                ...state,
+                textField:'',
             list:[...state.list,action.payload]
             }    
             
