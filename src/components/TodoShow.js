@@ -6,7 +6,7 @@ const TodoShow=(props) => {
             <input  name="uinput" onChange={(e)=> props.updateField(e.target.value)}
             placeholder="enter task here"  /> 
             <button onClick={()=> props.addtask(props.text)} > add task </button>
-            {props.listvalue }  
+            {props.listvalue } 
         </div>
     );
 }

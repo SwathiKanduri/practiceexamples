@@ -1,6 +1,7 @@
 const initialState = {
     textField:'',
-    list: []
+    list: [],
+    taskId:''
   }
 
 const ReducerTodo=(state=initialState,action)=>{
@@ -16,8 +17,15 @@ const ReducerTodo=(state=initialState,action)=>{
             return  { 
                 textField:'',
             list:[...state.list,action.payload]
-            }    
-            
+            };    
+         case 'DELETETASK':
+             return  { 
+           list:[state.list.slice(action.payload-1),
+            state.list.slice(action.payload+1)] 
+             };    
+        
+
+
         default: return state;
     }
 }

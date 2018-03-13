@@ -11,3 +11,10 @@ export function updateField(newText){
         payload:newText
     }
 }
+
+export function deleteTask(taskId) {
+    return{
+        type:'DELETETASK',
+        payload:taskId
+    };
+}

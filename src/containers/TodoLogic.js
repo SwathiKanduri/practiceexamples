@@ -1,6 +1,6 @@
 import React from 'react';
 
-import {addTask,updateField} from '../actions/actionsTodo'
+import {addTask,updateField,deleteTask} from '../actions/actionsTodo'
 import TodoShow from '../components/TodoShow'
 import {connect} from 'react-redux'
 import storeTodo from '../storeTodo'
@@ -11,7 +11,8 @@ class TodoLogic extends React.Component{
     render(){
         const displayList = this.props.list.map((array,index) =>
             <ul style={{listStyle:'none'}} > <li > 
-            <input key={index} type="checkbox"  /> {array}
+             {array} &nbsp; &nbsp; &nbsp; 
+             <button onClick={()=> this.props.deleteTask(this.props.taskId)} > delete task </button>
             </li> </ul> 
             );
 
@@ -22,6 +23,7 @@ class TodoLogic extends React.Component{
                     text={this.props.text}
                     addtask={this.props.addTask}  
                     listvalue={displayList}
+                    taskId={this.props.taskId}
                 />                             
             </div>
         );                                 
@@ -32,8 +34,8 @@ class TodoLogic extends React.Component{
 const mapStateToProps = (state) => {
     return {
         text:state.textField,
-        list:state.list
-       
+        list:state.list,
+        taskId:state.taskId
     };
   };
   
@@ -45,6 +47,10 @@ const mapStateToProps = (state) => {
         addTask: (text) => {
               dispatch(addTask(text));
         },
+
+        deleteTask: (taskId) => {
+            dispatch(deleteTask(taskId));
+      },
     
   });
 
