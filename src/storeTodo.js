@@ -1,9 +1,9 @@
 import {createStore} from 'redux';
-import ReducerTodo from './reducers/reducerTodo';
+import reducers from './reducers/reducerTodo';
 
 
 
 
-const storeTodo=createStore(ReducerTodo);
+const storeTodo=createStore(reducers);
 
 export default storeTodo;

@@ -1,32 +1,19 @@
-const initialState = {
-    textField:'',
-    list: [],
-    taskId:''
-  }
 
-const ReducerTodo=(state=initialState,action)=>{
+
+
+const ReducerTodo=(state=[],action)=>{
     switch(action.type){
-        case 'FIELD_CHANGE':
-        console.log(state,action) 
-            return{
-                ...state,
-                textField:action.payload
-            };
+
         case 'ADDTASK':
-        console.log(state,action) 
-            return  { 
-                textField:'',
-            list:[...state.list,action.payload]
-            };    
+            state=state.concat(action.payload);
+            break;
          case 'DELETETASK':
-             return  { 
-          ...state.list.splice(action.payload,1)
-             };    
-        
-
-
-        default: return state;
+            state=state.slice();
+            state.splice(action.payload,1);
+            break;
     }
+     return state;
 }
+
 
 export default ReducerTodo;

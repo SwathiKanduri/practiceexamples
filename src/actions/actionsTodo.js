@@ -1,23 +1,17 @@
-export function addTask(text) {
+const addTask=(task)=> {
     return{
         type:'ADDTASK',
-        payload:text
+        payload:task
     };
-}
+},
 
-export function updateField(newText){
-    return{
-        type:'FIELD_CHANGE',
-        payload:newText
-    }
-}
 
-export function deleteTask(taskId) {
+ deleteTask=(taskId)=> {
     return{
         type:'DELETETASK',
         payload:taskId
     };
-}
+};
 
+export  {addTask, deleteTask};
 
-//// edited this file to see git branching n merging with master works or not for me

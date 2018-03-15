@@ -6,6 +6,7 @@ import {connect} from 'react-redux'
 import storeTodo from '../storeTodo'
 // import ReducerTodo from '../reducers/reducerTodo';
 
+/*
 
 class TodoLogic extends React.Component{
     render(){
@@ -58,4 +59,4 @@ const mapStateToProps = (state) => {
   export default connect(mapStateToProps,mapDispatchToProps)(TodoLogic); 
 
 
-  
+  */

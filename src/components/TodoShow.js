@@ -1,14 +1,27 @@
 import React from 'react';
+import {connect} from 'react-redux';
+import {bindActionCreators} from 'redux'
+import {addTask} from '../actions/actionsTodo'
 
-const TodoShow=(props) => {
-    return(
-        <div> 
-            <input  name="uinput" onChange={(e)=> props.updateField(e.target.value)}
-            placeholder="enter task here"  /> 
-            <button onClick={()=> props.addtask(props.text)} > add task </button>
-            {props.listvalue } 
-        </div>
-    );
+
+class TodoShow extends React.Component {
+    render(){
+        return(
+            <div> 
+                <input type="text" ref="uinput" placeholder="enter task here"  /> 
+                <button onClick={()=> this.props.addTask(this.refs.uinput.value)} > add task </button>
+                 
+            </div>
+        );
+    }
+    
 }
 
-export default TodoShow;
+
+function mapDispatchToProps(dispatch) {
+return bindActionCreators({addTask},dispatch);
+}
+
+
+
+export default connect(()=>{ return {};},mapDispatchToProps)(TodoShow); 

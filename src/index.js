@@ -14,7 +14,7 @@ import storeTodo from './storeTodo'
 
 ReactDOM.render(
 <Provider store={storeTodo}>
-    <TodoLogic />
+    <App />
 </Provider>,    
 document.getElementById('root'));
 
