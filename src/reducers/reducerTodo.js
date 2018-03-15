@@ -20,8 +20,7 @@ const ReducerTodo=(state=initialState,action)=>{
             };    
          case 'DELETETASK':
              return  { 
-           list:[state.list.slice(action.payload-1),
-            state.list.slice(action.payload+1)] 
+          ...state.list.splice(action.payload,1)
              };    
         
 
