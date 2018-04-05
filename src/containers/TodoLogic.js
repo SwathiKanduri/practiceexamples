@@ -1,9 +1,30 @@
 import React from 'react';
+import ReactDOM from 'react-dom'
+import {Provider} from 'react-redux'
 
 import {addTask,updateField,deleteTask} from '../actions/actionsTodo'
 import TodoShow from '../components/TodoShow'
+import TodoShowList from '../components/TodoShowList'
 import {connect} from 'react-redux'
 import storeTodo from '../storeTodo'
+
+export default class TodoLogic extends React.Component{
+    render(){
+        return(
+            ReactDOM.render(
+                <Provider store={storeTodo}>
+                    <TodoShow/>
+                    <TodoShowList/>
+                </Provider>, document.getElementById('root'))
+        );
+    }
+    
+}
+
+
+
+
+
 // import ReducerTodo from '../reducers/reducerTodo';
 
 /*
