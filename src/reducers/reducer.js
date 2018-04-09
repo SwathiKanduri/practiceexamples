@@ -1,11 +1,12 @@
 const calcState = {
         value: 0,
-        btns: [ "clear", "=", "0", "/", "7", "8", "9", "*", "4", "5", "6", "+", "1", "2", "3", "-" ]
+        btns: [ "clear", "=", "0", "/", "7", "8", "9", "*", "4", "5", "6", "+", "1", "2", "3", "-"]
     }
 
 const Reducer= (state = calcState,
         action) => {
 switch(action.type){
+        
     case 'ADDELEM':
            return{
                    ...state,

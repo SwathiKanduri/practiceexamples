@@ -7,12 +7,13 @@ import TodoLogic from './containers/TodoLogic'
 
 import {BrowserRouter as Router,Switch, Route, Link } from 'react-router-dom';
 import Calculator from './components/Calculator';
-// import CalcLogic from './containers/CalcLogic'
+ import CalcLogic from './containers/CalcLogic'
 
 class App extends Component {
   render() {
     return (
       <div className="App">
+      <CalcLogic />
       <Calculator/>
       </div> 
 

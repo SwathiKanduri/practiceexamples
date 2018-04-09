@@ -1,23 +1,25 @@
 
- export function addElem(text) {
+ const addElem=(text)=> {
      return{
          type:'ADDELEM',
          payload:text
      };
- }
+ },
 
- export function  clear{
+  clear=()=>{
     return{
         type:'CLEAR' 
     };
-}
+},
 
-export function equals(value) {
+ equals=(value)=> {
     return{
         type:'EQUALS',
         payload:value
     };
 }
+
+export {addElem,clear,equals};
 
 
 
