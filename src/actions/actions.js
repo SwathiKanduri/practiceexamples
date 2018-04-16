@@ -1,25 +1,24 @@
 
- const addElem=(text)=> {
-     return{
-         type:'ADDELEM',
-         payload:text
-     };
- },
+var obj;
+ const getweather=(cityname)=> {
+    var url='https://openweathermap.org/find?q=${cityname}';    //https://www.metaweather.com/api/
+    fetch(url) 
+          .then(response => 
+               response.json())
+          .then(json=>  obj=json)
+              .then(() =>
+                console.log(obj)
+              )
+              .catch(error => console.log('error: ',error))
 
-  clear=()=>{
-    return{
-        type:'CLEAR' 
-    };
-},
+              return{
+                  type:'GET_WEATHER',
+                  payload:obj
+              }
+ }
+  
 
- equals=(value)=> {
-    return{
-        type:'EQUALS',
-        payload:value
-    };
-}
-
-export {addElem,clear,equals};
+export {getweather};
 
 
 
